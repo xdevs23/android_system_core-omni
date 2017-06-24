@@ -1024,6 +1024,10 @@ static int do_init_user0(const std::vector<std::string>& args) {
     return e4crypt_do_init_user0();
 }
 
+static int do_install_keyring(const std::vector<std::string>& args) {
+    return e4crypt_install_keyring();
+}
+
 BuiltinFunctionMap::Map& BuiltinFunctionMap::map() const {
     constexpr std::size_t kMax = std::numeric_limits<std::size_t>::max();
     static const Map builtin_functions = {
@@ -1043,6 +1047,7 @@ BuiltinFunctionMap::Map& BuiltinFunctionMap::map() const {
         {"init_user0",              {0,     0,    do_init_user0}},
         {"insmod",                  {1,     kMax, do_insmod}},
         {"installkey",              {1,     1,    do_installkey}},
+        {"install_keyring",         {0,     0,    do_install_keyring}},
         {"load_persist_props",      {0,     0,    do_load_persist_props}},
         {"load_system_props",       {0,     0,    do_load_system_props}},
         {"loglevel",                {1,     1,    do_loglevel}},
