@@ -530,7 +530,7 @@ static int queue_fs_event(int code) {
 
 static int do_install_keyring(const std::vector<std::string>& args) {
     if (e4crypt_install_keyring()) {
-        ERROR("failed to install keyring\n");
+        PLOG(ERROR) << "failed to install keyring";
         return -1;
     }
     property_set("ro.crypto.state", "encrypted");
